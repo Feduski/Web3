@@ -14,7 +14,10 @@ cargarListado()
 
 
 function crearBoton(poke) {
-    let boton = `<button onclick="cargarPokemon('${poke.url}')">${poke.name}</button>`;
+    let mayus = poke.name[0].toUpperCase();
+    let restoDelPokemon = poke.name.slice(1);
+    let nombredelPokemon = mayus + restoDelPokemon
+    let boton = `<button id ="btn" onclick="cargarPokemon('${poke.url}')">${nombredelPokemon}</button>`;
     document.getElementById("contenedor-listado").innerHTML+=boton
 }   
 
@@ -35,7 +38,7 @@ function crearCarta(poke){
     let nombredelPokemon = mayus + restoDelPokemon
     
     let carta = `
-    <h2>${nombredelPokemon}</h2>
+    <h3>${nombredelPokemon}</h3>
     <img src="${poke.sprites.front_default}">
     `
     let contenedor = document.getElementById("contenedor-carta")
